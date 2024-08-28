@@ -1,20 +1,23 @@
-import ImageCard from '../ImageCard/ImageCard';
+import css from './ImageGallery.module.css'; // Импорт стилей
+import ImageCard from '../ImageCard/ImageCard'; 
 
 const ImageGallery = ({ images, modalOpen }) => {
-  // Проверяем, есть ли изображения
-  if (images.length === 0) {
-    return null; // Если изображений нет, ничего не рендерим
-  }
-
   return (
-    <ul>
-      {images.map((image) => (
-        <li key={image.id}>
-          <ImageCard image={image} modalOpen={modalOpen} />
-        </li>
-      ))}
+    <ul className={css.imageGallery}>
+      {images.length === 0 ? (
+        <div className={css.noImages}>No images found</div>
+      ) : (
+        images.map((image) => (
+          <li key={image.id} className={css.imageItem}>
+            <div className={css.imageWrapper}>
+              <ImageCard image={image} modalOpen={modalOpen} />
+            </div>
+          </li>
+        ))
+      )}
     </ul>
   );
 };
 
 export default ImageGallery;
+

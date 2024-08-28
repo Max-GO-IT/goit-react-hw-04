@@ -46,15 +46,15 @@ function App() {
   };
 
   const SubmitOn = () => {
-    setPage(1); // Сбрасываем страницу на 1 при новом поиске
-    setImageList([]); // Очищаем список изображений
-    fetchImages(1); // Загружаем первую порцию изображений
+    setPage(1); 
+    setImageList([]); 
+    fetchImages(1); 
   };
 
   const loadMoreImages = () => {
-    const nextPage = page + 1; // Увеличиваем номер страницы
-    setPage(nextPage); // Обновляем состояние страницы
-    fetchImages(nextPage); // Загружаем следующую порцию изображений
+    const nextPage = page + 1; 
+    setPage(nextPage); 
+    fetchImages(nextPage); 
   };
 
   const closeModal = () => {

@@ -1,7 +1,7 @@
-import React from 'react';
+import css from './ImageModal.module.css'; 
 import Modal from 'react-modal';
 
-// Устанавливаем элемент, который будет скрыт, когда модальное окно открыто
+
 Modal.setAppElement('#root');
 
 const ImageModal = ({ isOpen, onClose, imageUrl }) => {
@@ -10,14 +10,17 @@ const ImageModal = ({ isOpen, onClose, imageUrl }) => {
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Image Modal"
+      className={css.Modal__content} 
+      overlayClassName={css.Modal__overlay} 
     >
-      <button onClick={onClose}>Close</button>
-      <img src={imageUrl.urls.regular} alt="Modal Content" />
+      <button onClick={onClose} className={css.closeButton}>Close</button>
+      <img src={imageUrl.urls.regular} alt="Modal Content" className={css.modalImage} />
     </Modal>
   );
 };
 
 export default ImageModal;
+
 
 
 
